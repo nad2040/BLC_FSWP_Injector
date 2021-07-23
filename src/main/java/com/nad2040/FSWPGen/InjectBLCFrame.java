@@ -117,8 +117,6 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
     public static void main(String[] args) throws IllegalArgumentException, IOException, URISyntaxException {
         InjectBLCFrame frame = new InjectBLCFrame();
 
-//        jsonInject(new File("/Users/danliu/Desktop/test.json"), true);
-
 //        FSGen.BLCGen(true);
 //        FSGen.BLCGen(false);
 //        FSGen.FyuGen();
