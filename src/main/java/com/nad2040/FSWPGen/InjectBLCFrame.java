@@ -18,11 +18,12 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
     private final JTextField filelabel;
     private final JButton findFile;
     private final JButton install;
+    private final JCheckBox active;
     private final JLabel success;
     private File modprofile;
 
     public InjectBLCFrame() {
-        final int width = 600, height = 300;
+        final int width = 600, height = 250;
         JPanel panel = new JPanel();
         frame = new JFrame();
         frame.setSize(width,height);
@@ -49,10 +50,15 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
         panel.add(filelabel);
 
         install = new JButton("Install");
-        install.setBounds(width/2 - 50,140,100,20);
+        install.setBounds(width/2 + 50,140,100,20);
         install.setEnabled(false);
         install.addActionListener(this);
         panel.add(install);
+
+        active = new JCheckBox("All Hidden\t(Recommended)");
+        active.setBounds(width/2 - 200,140,300,20);
+        active.addActionListener(this);
+        panel.add(active);
 
         success = new JLabel("");
         success.setBounds(width/2 - 200,170,400,20);
@@ -78,9 +84,12 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
                 if (filename.split("\\.")[1].equals("json")) install.setEnabled(true);
             }
         }
+        if (e.getSource() == active) {
+            active.setText(active.isSelected() ? "All Active\t(Just no)": "All Hidden\t(Recommended)");
+        }
         if (e.getSource() == install) {
             try {
-                jsonInject(modprofile,false);
+                jsonInject(modprofile,active.isSelected());
                 success.setText("Success! You may close the window now.");
             } catch (IOException ioException) {
                 ioException.printStackTrace();
@@ -90,13 +99,12 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
 
     public static void jsonInject(File file, boolean visible) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-        InputStreamReader rd = new InputStreamReader(file.toURI().toURL().openStream());
 
+        InputStreamReader rd = new InputStreamReader(file.toURI().toURL().openStream());
         JsonObject rootObj = JsonParser.parseReader(rd).getAsJsonObject();
         rd.close();
-        JsonObject waypoints = rootObj.getAsJsonObject("waypoints");
-        waypoints.remove("waypoints");
 
+        JsonObject waypoints = rootObj.getAsJsonObject("waypoints");
         JsonArray array = FSGen.BLC_FSWP(visible);
         waypoints.add("waypoints", array);
 
