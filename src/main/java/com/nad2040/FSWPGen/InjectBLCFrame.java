@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URISyntaxException;
 
 public class InjectBLCFrame extends JFrame implements ActionListener {
 
@@ -114,7 +113,7 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
         w.close();
     }
 
-    public static void main(String[] args) throws IllegalArgumentException, IOException, URISyntaxException {
+    public static void main(String[] args) throws IllegalArgumentException {
         InjectBLCFrame frame = new InjectBLCFrame();
 
 //        FSGen.BLCGen(true);
