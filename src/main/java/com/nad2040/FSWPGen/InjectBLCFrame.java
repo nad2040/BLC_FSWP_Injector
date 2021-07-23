@@ -49,13 +49,13 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
         panel.add(filelabel);
 
         install = new JButton("Install");
-        install.setBounds(width/2 + 50,140,100,20);
+        install.setBounds(width/2 + 50,140,125,20);
         install.setEnabled(false);
         install.addActionListener(this);
         panel.add(install);
 
-        active = new JCheckBox("All Hidden\t(Recommended)");
-        active.setBounds(width/2 - 200,140,300,20);
+        active = new JCheckBox("All Hidden (Recommended)");
+        active.setBounds(width/2 - 200,140,220,20);
         active.addActionListener(this);
         panel.add(active);
 
@@ -84,7 +84,7 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
             }
         }
         if (e.getSource() == active) {
-            active.setText(active.isSelected() ? "All Active\t(Just no)": "All Hidden\t(Recommended)");
+            active.setText(active.isSelected() ? "All Active (Just no)": "All Hidden (Recommended)");
         }
         if (e.getSource() == install) {
             try {
