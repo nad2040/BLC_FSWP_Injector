@@ -13,4 +13,4 @@ Double click the jar.\
 Select your BLC mod profile.\
 Select if you want all waypoints to be active/inactive by default. (Just leave it inactive please)\
 Click install.\
-Then close the window.\
+Then close the window.
