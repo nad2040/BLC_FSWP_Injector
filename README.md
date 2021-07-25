@@ -5,6 +5,8 @@ Credits to https://github.com/Moulberry/NotEnoughUpdates-REPO/blob/master/consta
 
 Will be adding a way to just edit a text file with new locations to automate even further. Soon™
 
+Please make an issue if this jar does not work on windows. It should in theory, but I am not 100% sure.
+
 # How to Use?
 
 Download the latest InjectBLCWithFSWP jar from the releases -->\
