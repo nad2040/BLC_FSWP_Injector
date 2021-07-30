@@ -1,11 +1,12 @@
 # BLC Fairy Soul Waypoint Injector for Hypixel Skyblock
-Injects BLC Mod Profile with fairy soul waypoints.
+Injects BLC Mod Profile with fairy soul waypoints automatically.\
+It first accesses the NotEnoughUpdates-REPO/constants/fairy_souls.json\
+Then it reads src/main/resources/locations.csv\
+It creates a linked hash map for each real island name and the JsonArray of coordinate strings held in NEU-REPO.\
+Then formats the BLC waypoint format with the coordinates and name, uses Gson to parse it into a JsonElement, and inserts it into the JsonArray.\
+That JsonArray is then inserted into your BLC Mod Profile.
 
-Credits to https://github.com/Moulberry/NotEnoughUpdates-REPO/blob/master/constants/fairy_souls.json
-
-Will be adding a way to just edit a text file with new locations to automate even further. Soon™
-
-Please make an issue if this jar does not work on windows. It should in theory, but I am not 100% sure.
+**Please make an issue if this jar does not work on Windows. It should in theory, but I am not 100% sure.**
 
 # How to Use?
 
@@ -17,3 +18,6 @@ Select your BLC mod profile.\
 Select if you want all waypoints to be active/inactive by default. (Just leave it inactive please)\
 Click install.\
 Then close the window.
+
+# Credits
+Credits to https://github.com/Moulberry/NotEnoughUpdates-REPO/blob/master/constants/fairy_souls.json
