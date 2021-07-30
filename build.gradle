@@ -10,20 +10,20 @@ plugins {
     id 'application'
 }
 
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.7'
+}
+
 application {
     mainClass = 'com.nad2040.FSWPGen.InjectBLCFrame'
 }
 
 sourceCompatibility = 16
 targetCompatibility = 16
-
-repositories { 
-    mavenCentral() 
-}
-
-dependencies {
-    implementation 'com.google.code.gson:gson:2.8.7'
-}
 
 jar {
     archiveBaseName = "InjectBLCWithFSWP"
