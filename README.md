@@ -4,8 +4,7 @@ Injects BLC Mod Profile with fairy soul waypoints automatically.
 - It accesses the NotEnoughUpdates-REPO/constants/fairy_souls.json
 - It reads src/main/resources/locations.csv
 - It creates a linked hash map for each real island name and the JsonArray of coordinate strings held in NEU-REPO.
-- It formats the BLC waypoint format with the coordinates and name, uses Gson to parse it into a JsonElement, and\
-inserts it into the JsonArray.\
+- It formats the BLC waypoint format with the coordinates and name, uses Gson to parse it into a JsonElement, and inserts it into the JsonArray.\
 
 That JsonArray is then inserted into your BLC Mod Profile.
 
