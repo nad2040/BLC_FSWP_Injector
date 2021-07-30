@@ -2,14 +2,11 @@ package com.nad2040.FSWPGen;
 
 import com.google.gson.*;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 public class FSGen {
     private static final String blcFormat =
@@ -31,7 +28,7 @@ public class FSGen {
                 "value": true
             },
             "textMarker": {
-                "value": true 
+                "value": true
             },
             "enabled": {
                 "value": %s
@@ -168,34 +165,19 @@ public class FSGen {
     }
 
     public static LinkedHashMap<String, JsonArray> FSRepo() throws IOException, IllegalArgumentException {
-        URL url = new URL("https://raw.githubusercontent.com/Moulberry/NotEnoughUpdates-REPO/master/constants/fairy_souls.json");
-        InputStreamReader rd = new InputStreamReader(url.openStream());
-
+        URL neu_repo = new URL("https://raw.githubusercontent.com/Moulberry/NotEnoughUpdates-REPO/master/constants/fairy_souls.json");
+        InputStreamReader rd = new InputStreamReader(neu_repo.openStream());
         JsonObject rootObj = JsonParser.parseReader(rd).getAsJsonObject();
-        JsonArray hub = rootObj.getAsJsonArray("hub");
-        JsonArray combat_1 = rootObj.getAsJsonArray("combat_1");
-        JsonArray combat_2 = rootObj.getAsJsonArray("combat_2");
-        JsonArray combat_3 = rootObj.getAsJsonArray("combat_3");
-        JsonArray foraging_1 = rootObj.getAsJsonArray("foraging_1");
-        JsonArray farming_1 = rootObj.getAsJsonArray("farming_1");
-        JsonArray mining_1 = rootObj.getAsJsonArray("mining_1");
-        JsonArray mining_2 = rootObj.getAsJsonArray("mining_2");
-        JsonArray mining_3 = rootObj.getAsJsonArray("mining_3");
-        JsonArray winter = rootObj.getAsJsonArray("winter");
-        JsonArray dungeon_hub = rootObj.getAsJsonArray("dungeon_hub");
-
         LinkedHashMap<String, JsonArray> soulrepo = new LinkedHashMap<>();
-        soulrepo.put("Hub", hub);
-        soulrepo.put("Spider's Den", combat_1);
-        soulrepo.put("Blazing Fortress", combat_2);
-        soulrepo.put("End", combat_3);
-        soulrepo.put("Park", foraging_1);
-        soulrepo.put("Farming", farming_1);
-        soulrepo.put("Gold Mine", mining_1);
-        soulrepo.put("Deep Caverns", mining_2);
-        soulrepo.put("Dwarven Mines", mining_3);
-        soulrepo.put("Jerry's Workshop", winter);
-        soulrepo.put("Dungeon Hub", dungeon_hub);
+
+        URL csv = new URL("https://raw.githubusercontent.com/nad2040/BLC_FSWP_Injector/main/src/main/resources/locations.csv");
+        BufferedReader br = new BufferedReader(new InputStreamReader(csv.openStream(), StandardCharsets.UTF_8));
+
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] location = line.split(",");
+            soulrepo.put(location[0],rootObj.getAsJsonArray(location[1]));
+        }
 
         return soulrepo;
     }
