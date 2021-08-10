@@ -164,6 +164,40 @@ public class FSGen {
         w.close();
     }
 
+    public static void LunarGen(boolean active) throws URISyntaxException, IOException {
+        final String path = new File(FSGen.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParent();
+        FileWriter w;
+
+        String format =
+        """
+        "%s #%d": {
+            "location": {
+                "x": %s,
+                "y": %s,
+                "z": %s
+            },
+            "visible": %s,
+            "dimension": 0
+        }""";
+
+        String isActive = (active ? "true" : "false");
+        for (Map.Entry<String, JsonArray> l : FSRepo().entrySet()) {
+            w = new FileWriter(path + "/waypoints_" + l.getKey().replace(' ','_') + ".json");
+            w.append("{\n\t\"mp:hypixel.net\": {\n\t\t\"\": {\n");
+            boolean first = true;
+            int i=1;
+            for (JsonElement e : l.getValue()) {
+                String[] coords = e.getAsString().split(",");
+                if (!first) w.append(",\n");
+                w.append(String.format(format, l.getKey(), i++, coords[0], coords[1], coords[2], isActive));
+                first = false;
+            }
+            w.append("\n\t\t}\n\t}\n}");
+            w.flush();
+            w.close();
+        }
+    }
+
     public static LinkedHashMap<String, JsonArray> FSRepo() throws IOException, IllegalArgumentException {
         URL neu_repo = new URL("https://raw.githubusercontent.com/Moulberry/NotEnoughUpdates-REPO/master/constants/fairy_souls.json");
         InputStreamReader rd = new InputStreamReader(neu_repo.openStream());

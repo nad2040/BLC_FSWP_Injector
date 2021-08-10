@@ -116,8 +116,12 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
     public static void main(String[] args) throws IllegalArgumentException {
         InjectBLCFrame frame = new InjectBLCFrame();
 
-//        FSGen.BLCGen(true);
+//        When running the functions below inside IntelliJ IDEA, the files will be generated in /build/classes/java
+//        These are functions only useful to me.
 //        FSGen.BLCGen(false);
+//        FSGen.BLCGen(true);
 //        FSGen.FyuGen();
+//        FSGen.LunarGen(false);
+//        FSGen.LunarGen(true);
     }
 }
