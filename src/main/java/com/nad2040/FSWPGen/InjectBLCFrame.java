@@ -120,8 +120,8 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
 //        These are functions only useful to me.
 //        FSGen.BLCGen(false);
 //        FSGen.BLCGen(true);
-//        FSGen.FyuGen();
 //        FSGen.LunarGen(false);
 //        FSGen.LunarGen(true);
+//        FSGen.FyuGen();
     }
 }

@@ -181,6 +181,7 @@ public class FSGen {
         }""";
 
         String isActive = (active ? "true" : "false");
+
         for (Map.Entry<String, JsonArray> l : FSRepo().entrySet()) {
             w = new FileWriter(path + "/waypoints_" + l.getKey().replace(' ','_') + ".json");
             w.append("{\n\t\"mp:hypixel.net\": {\n\t\t\"\": {\n");
