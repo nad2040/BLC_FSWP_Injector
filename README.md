@@ -8,6 +8,8 @@ Injects BLC Mod Profile with fairy soul waypoints automatically.
 
 That JsonArray is then inserted into your BLC Mod Profile.
 
+**IT WILL DELETE ANY WAYPOINTS ALREADY INSIDE YOUR MOD PROFILE**
+
 #### Please make a Github issue if this jar does not work on Windows. It should in theory, but I am not 100% sure.
 
 ## How to Use?
