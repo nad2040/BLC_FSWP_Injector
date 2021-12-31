@@ -17,9 +17,9 @@ That JsonArray is then inserted into your BLC Mod Profile.
 Download the latest InjectBLCWithFSWP jar from the releases -->\
 Make sure you have Java 17 installed: https://adoptium.net/?variant=openjdk17&jvmVariant=hotspot \
 Double click the jar.\
-Select your BLC mod profile.\
-Select if you want all waypoints to be active/inactive by default. (Just leave it inactive please)\
-Click install.\
+Select your BLC mod profile. .minecraft/BLClient-Mod-Profiles \
+Select if you want all waypoints to be active/inactive by default. (I recommend inactive)\
+Click the install button.\
 Then close the window.
 
 ## Credits
