@@ -1,4 +1,7 @@
 # BLC Fairy Soul Waypoint Injector for Hypixel Skyblock
+
+### **This work is now obsolete because Badlion Client added a mod that allows you to find fairy souls without having to use the waypoints mod.**
+
 Injects BLC Mod Profile with fairy soul waypoints automatically.
 
 - It accesses the NotEnoughUpdates-REPO/constants/fairy_souls.json
