@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URISyntaxException;
 
 public class InjectBLCFrame extends JFrame implements ActionListener {
 
@@ -113,14 +114,14 @@ public class InjectBLCFrame extends JFrame implements ActionListener {
         w.close();
     }
 
-    public static void main(String[] args) throws IllegalArgumentException {
-        InjectBLCFrame frame = new InjectBLCFrame();
+    public static void main(String[] args) throws IllegalArgumentException, URISyntaxException, IOException {
+//        InjectBLCFrame frame = new InjectBLCFrame();
 
 //        When running the functions below inside IntelliJ IDEA, the files will be generated in /build/classes/java
 //        These are functions only useful to me.
 //        FSGen.BLCGen(false);
 //        FSGen.BLCGen(true);
-//        FSGen.LunarGen(false);
+        FSGen.LunarGen(false);
 //        FSGen.LunarGen(true);
 //        FSGen.FyuGen();
     }

@@ -26,11 +26,11 @@ sourceCompatibility = 17
 targetCompatibility = 17
 
 jar {
-    archiveBaseName = "InjectBLCWithFSWP"
-    archiveVersion =  '1.2'
+    archivesBaseName = 'InjectBLCWithFSWP'
+    archiveVersion = '1.2'
 
     manifest {
-        attributes 'Main-Class': 'com.nad2040.FSWPGen.InjectBLCFrame'
+        attributes("Main-Class": "com.nad2040.FSWPGen.InjectBLCFrame")
     }
 
     from {
